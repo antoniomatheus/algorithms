@@ -67,13 +67,15 @@ class BinarySearchTree {
     return data;
   }
 
-  // Pre-order
   traverseDFS() {
     const data = [];
     function iter(node) {
-      console.log(node);
+      // Pre-order
+      data.push(node);
       node.left && iter(node.left);
+      // In-order
       node.right && iter(node.right);
+      // Post-order
     }
     iter(this.root);
     return data;
@@ -88,3 +90,5 @@ class Node {
     this.parent = null;
   }
 }
+
+export default BinarySearchTree;
