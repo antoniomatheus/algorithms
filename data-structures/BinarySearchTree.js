@@ -53,6 +53,31 @@ class BinarySearchTree {
 
     return false;
   }
+
+  // Pre-order
+  traverseBFS() {
+    const data = [];
+    const queue = [this.root];
+    while (queue.length) {
+      const currentNode = queue.shift();
+      data.push(currentNode);
+      currentNode.left && queue.push(currentNode.left);
+      currentNode.right && queue.push(currentNode.right);
+    }
+    return data;
+  }
+
+  // Pre-order
+  traverseDFS() {
+    const data = [];
+    function iter(node) {
+      console.log(node);
+      node.left && iter(node.left);
+      node.right && iter(node.right);
+    }
+    iter(this.root);
+    return data;
+  }
 }
 
 class Node {
